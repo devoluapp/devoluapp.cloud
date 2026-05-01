@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Exclusão de Dados — Devoluapp_social_automation_IG</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #1A56A0;
+      --blue-light: #2d74cc;
+      --blue-pale: #EBF2FB;
+      --dark: #0f1923;
+      --gray: #4a5568;
+      --gray-light: #718096;
+      --border: #d0dce8;
+      --bg: #f7f9fc;
+      --white: #ffffff;
+      --accent: #e8f0fb;
+      --red: #dc2626;
+      --red-pale: #fef2f2;
+      --green: #16a34a;
+      --green-pale: #f0fdf4;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      font-size: 15px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--blue);
+      padding: 0;
+      box-shadow: 0 2px 12px rgba(26,86,160,0.08);
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .app-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 17px;
+      color: var(--blue);
+    }
+
+    .back-link {
+      font-size: 13px;
+      color: var(--gray-light);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+    }
+
+    .back-link:hover { color: var(--blue); }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #c81e1e 0%, #7f1d1d 100%);
+      color: white;
+      padding: 56px 32px 48px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'%3E%3Cpath d='M0 40L40 0H20L0 20M40 40V20L20 40'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero-icon {
+      width: 64px;
+      height: 64px;
+      background: rgba(255,255,255,0.15);
+      border: 2px solid rgba(255,255,255,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px;
+      font-size: 28px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(24px, 4vw, 36px);
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .hero .subtitle {
+      font-size: 15px;
+      opacity: 0.8;
+      font-weight: 300;
+      position: relative;
+    }
+
+    /* MAIN */
+    .main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    /* STEP CARD */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin: 32px 0;
+      position: relative;
+    }
+
+    .steps::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 44px;
+      bottom: 44px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--blue-light), var(--border));
+    }
+
+    .step {
+      display: flex;
+      gap: 20px;
+      padding: 24px 0;
+      position: relative;
+    }
+
+    .step-num {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-size: 20px;
+      font-weight: 600;
+      font-family: 'DM Serif Display', serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 0 4px var(--bg), 0 0 0 6px var(--border);
+    }
+
+    .step-body {
+      flex: 1;
+      padding-top: 10px;
+    }
+
+    .step-body h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 19px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .step-body p {
+      color: var(--gray);
+      font-size: 14px;
+      margin-bottom: 0;
+    }
+
+    /* EMAIL BOX */
+    .email-box {
+      background: var(--white);
+      border: 2px solid var(--blue);
+      border-radius: 14px;
+      padding: 28px 32px;
+      margin: 12px 0 8px;
+      text-align: center;
+    }
+
+    .email-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 10px;
+    }
+
+    .email-address {
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--blue);
+      letter-spacing: -0.5px;
+    }
+
+    .email-cta {
+      display: inline-block;
+      margin-top: 16px;
+      background: var(--blue);
+      color: white;
+      text-decoration: none;
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.3px;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .email-cta:hover {
+      background: var(--blue-light);
+      transform: translateY(-1px);
+    }
+
+    /* SUBJECT LINE */
+    .subject-box {
+      background: #0f1923;
+      border-radius: 8px;
+      padding: 14px 20px;
+      margin: 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .subject-label {
+      font-size: 11px;
+      color: #5f7a96;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .subject-text {
+      font-family: monospace;
+      font-size: 14px;
+      color: #7ec8e3;
+    }
+
+    /* TEMPLATE */
+    .email-template {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 16px 0;
+    }
+
+    .template-header {
+      background: var(--accent);
+      padding: 12px 18px;
+      border-bottom: 1px solid var(--border);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray-light);
+    }
+
+    .template-body {
+      padding: 20px 24px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.8;
+      white-space: pre-line;
+    }
+
+    .template-body .placeholder {
+      background: var(--accent);
+      color: var(--blue);
+      border: 1px dashed var(--blue-light);
+      border-radius: 4px;
+      padding: 1px 6px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    /* TIMELINE */
+    .timeline {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 16px 0;
+    }
+
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 10px 0;
+    }
+
+    .timeline-item + .timeline-item {
+      border-top: 1px dashed var(--border);
+    }
+
+    .timeline-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      margin-top: 6px;
+      flex-shrink: 0;
+    }
+
+    .timeline-content strong {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .timeline-content span {
+      font-size: 13px;
+      color: var(--gray);
+    }
+
+    /* INFO CALLOUT */
+    .callout {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin: 16px 0;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .callout.green {
+      border-left-color: var(--green);
+      background: var(--green-pale);
+    }
+
+    .callout.red {
+      border-left-color: var(--red);
+      background: var(--red-pale);
+    }
+
+    /* SECTION TITLE */
+    .section-intro {
+      margin-bottom: 8px;
+    }
+
+    .section-intro h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 8px;
+    }
+
+    .section-intro p {
+      color: var(--gray);
+      font-size: 15px;
+    }
+
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 40px 0;
+    }
+
+    /* FAQ */
+    .faq { margin-top: 8px; }
+
+    details {
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 8px;
+      background: var(--white);
+      overflow: hidden;
+    }
+
+    summary {
+      padding: 16px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--dark);
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    summary::after {
+      content: '+';
+      font-size: 20px;
+      color: var(--blue);
+      font-weight: 300;
+      transition: transform 0.2s;
+    }
+
+    details[open] summary::after {
+      transform: rotate(45deg);
+    }
+
+    details[open] {
+      border-color: var(--blue);
+    }
+
+    .faq-body {
+      padding: 0 20px 16px;
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px;
+      font-size: 13px;
+    }
+
+    footer strong { color: rgba(255,255,255,0.8); }
+    footer a { color: rgba(100,160,230,0.9); text-decoration: none; }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .main { padding: 32px 20px 60px; }
+      .header-inner { padding: 14px 20px; }
+      .hero { padding: 40px 20px; }
+      .steps::before { display: none; }
+      .email-box { padding: 20px; }
+      .email-address { font-size: 17px; }
+    }
+
+    /* ANIMATIONS */
+    .main > * {
+      opacity: 0;
+      transform: translateY(12px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .main > *:nth-child(1) { animation-delay: 0.05s; }
+    .main > *:nth-child(2) { animation-delay: 0.1s; }
+    .main > *:nth-child(3) { animation-delay: 0.15s; }
+    .main > *:nth-child(4) { animation-delay: 0.2s; }
+    .main > *:nth-child(n+5) { animation-delay: 0.25s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="app-name">Devoluapp_social_automation_IG</span>
+    <a href="politica-de-privacidade.html" class="back-link">
+      ← Política de Privacidade
+    </a>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-icon">🗑️</div>
+  <h1>Exclusão de Dados</h1>
+  <p class="subtitle">Instruções para solicitação de remoção dos seus dados pessoais</p>
+</div>
+
+<main class="main">
+
+  <div class="section-intro">
+    <h2>Como solicitar a exclusão dos seus dados</h2>
+    <p>Você tem o direito de solicitar a exclusão dos seus dados pessoais tratados pelo <strong>Devoluapp_social_automation_IG</strong>, conforme previsto na Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018) e nas Políticas da Meta Platforms. Siga os passos abaixo para realizar sua solicitação.</p>
+  </div>
+
+  <div class="steps">
+
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Envie um e-mail de solicitação</h3>
+        <p>Encaminhe sua solicitação de exclusão de dados para o nosso canal oficial:</p>
+        <div class="email-box">
+          <p class="email-label">E-mail para solicitações</p>
+          <p class="email-address">devoluapp@gmail.com</p>
+          <a href="mailto:devoluapp@gmail.com?subject=Solicitação%20de%20Exclusão%20de%20Dados%20-%20Devoluapp&body=Olá,%0A%0ASolicito%20a%20exclusão%20dos%20meus%20dados%20pessoais%20tratados%20pelo%20aplicativo%20Devoluapp_social_automation_IG.%0A%0ANome%20completo%20/%20Usuário%20do%20Instagram:%20%5Binserir%5D%0AE-mail%20associado%20à%20conta%20(se%20houver):%20%5Binserir%5D%0ATipo%20de%20dados%20a%20excluir:%20%5BTodos%20/%20especificar%5D%0A%0AAtenciosamente." class="email-cta">
+            Abrir e-mail agora →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Use o assunto correto</h3>
+        <p>Utilize o assunto abaixo para que sua solicitação seja identificada e processada rapidamente:</p>
+        <div class="subject-box">
+          <span class="subject-label">Assunto</span>
+          <span class="subject-text">Solicitação de Exclusão de Dados - Devoluapp</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Inclua as informações necessárias</h3>
+        <p>Para que possamos identificar e localizar seus dados com precisão, inclua no corpo do e-mail:</p>
+        <div class="email-template">
+          <div class="template-header">Modelo de e-mail sugerido</div>
+          <div class="template-body">Olá,
+
+Solicito a exclusão dos meus dados pessoais tratados pelo aplicativo Devoluapp_social_automation_IG.
+
+<span class="placeholder">Nome completo</span>: [seu nome]
+<span class="placeholder">Username do Instagram</span>: @[seu_usuario]
+<span class="placeholder">E-mail associado à conta</span>: [e-mail, se houver]
+<span class="placeholder">Tipo de dados</span>: Todos os dados / [especifique]
+
+Aguardo confirmação do recebimento e prazo de conclusão.
+
+Atenciosamente,
+[seu nome]</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Aguarde o processamento</h3>
+        <p>Após o recebimento da sua solicitação, seguiremos o seguinte fluxo:</p>
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <strong>Até 3 dias úteis</strong>
+              <span>Confirmação de recebimento da solicitação por e-mail</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <strong>Até 15 dias corridos</strong>
+              <span>Verificação de identidade e processamento da exclusão dos dados</span>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <strong>Confirmação final</strong>
+              <span>Envio de e-mail confirmando a conclusão da exclusão dos seus dados</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="callout green">
+    <strong>✓ Seus direitos garantidos pela LGPD</strong><br>
+    A solicitação de exclusão é um direito seu previsto no Art. 18 da Lei nº 13.709/2018 (LGPD). Não há nenhum custo ou burocracia excessiva para exercê-lo.
+  </div>
+
+  <hr class="divider">
+
+  <div class="section-intro">
+    <h2>Perguntas Frequentes</h2>
+    <p>Dúvidas comuns sobre a exclusão de dados:</p>
+  </div>
+
+  <div class="faq">
+
+    <details>
+      <summary>Quais dados serão excluídos?</summary>
+      <div class="faq-body">
+        Serão excluídos todos os dados pessoais associados à sua conta ou interações com o aplicativo, incluindo: identificadores de usuário do Instagram, histórico de interações com automações, configurações de conta (para Operadores) e logs de atividade. Dados que precisam ser retidos por obrigação legal (ex.: até 5 anos para fins fiscais e contratuais) serão anonimizados ou mantidos somente pelo prazo exigido por lei.
+      </div>
+    </details>
+
+    <details>
+      <summary>Sou um Usuário Final (comentei ou recebi uma DM). Posso solicitar exclusão?</summary>
+      <div class="faq-body">
+        Sim. Se você interagiu com uma publicação de um Operador que utiliza nosso aplicativo e deseja que seus dados sejam removidos (username, ID de usuário, conteúdo de comentário), basta enviar a solicitação conforme descrito acima. Removeremos seus dados dos nossos sistemas dentro do prazo indicado.
+      </div>
+    </details>
+
+    <details>
+      <summary>Sou um Operador e quero encerrar minha conta. Como procedo?</summary>
+      <div class="faq-body">
+        Como Operador, você pode primeiro desconectar todas as contas do Instagram vinculadas diretamente no painel do aplicativo (os tokens de acesso serão revogados imediatamente). Em seguida, envie o e-mail de solicitação de exclusão da sua conta e dados cadastrais. Processaremos a exclusão completa dos seus dados no prazo de até 15 dias corridos.
+      </div>
+    </details>
+
+    <details>
+      <summary>A exclusão também remove meus dados do Instagram/Meta?</summary>
+      <div class="faq-body">
+        A exclusão aqui se refere apenas aos dados armazenados em nossos sistemas. Para excluir dados diretamente das plataformas da Meta (Instagram, Facebook), você deve acessar as configurações de privacidade diretamente no Instagram ou utilizar os canais oficiais da Meta: <a href="https://www.facebook.com/privacy/policy" target="_blank" rel="noopener">Política de Privacidade da Meta</a>.
+      </div>
+    </details>
+
+    <details>
+      <summary>Minha solicitação não foi atendida. O que fazer?</summary>
+      <div class="faq-body">
+        Caso não receba resposta dentro dos prazos indicados, você pode registrar uma reclamação junto à <strong>Autoridade Nacional de Proteção de Dados (ANPD)</strong>, por meio do portal <a href="https://www.gov.br/anpd" target="_blank" rel="noopener">gov.br/anpd</a>. Você também pode solicitar esclarecimentos adicionais reenviando o e-mail com o histórico da conversa anterior.
+      </div>
+    </details>
+
+  </div>
+
+  <hr class="divider">
+
+  <div class="callout">
+    <strong>Dúvidas adicionais?</strong><br>
+    Entre em contato pelo e-mail <a href="mailto:devoluapp@gmail.com" style="color:var(--blue);font-weight:600;">devoluapp@gmail.com</a> com qualquer dúvida sobre privacidade, exclusão de dados ou o funcionamento do aplicativo. Respondemos em até 3 dias úteis.
+  </div>
+
+</main>
+
+<footer>
+  <p><strong>Devoluapp_social_automation_IG</strong></p>
+  <p style="margin-top:6px;">
+    <a href="politica-de-privacidade.html">Política de Privacidade</a>
+    &nbsp;·&nbsp;
+    <a href="mailto:devoluapp@gmail.com">devoluapp@gmail.com</a>
+  </p>
+  <p style="margin-top:6px;" id="footer-date"></p>
+</footer>
+
+<script>
+  const date = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+  document.getElementById('footer-date').textContent = 'Atualizado em ' + date;
+</script>
+
+</body>
+</html>
