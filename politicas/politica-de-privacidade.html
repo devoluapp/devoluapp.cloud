@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Política de Privacidade — Devoluapp_social_automation_IG</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --blue: #1A56A0;
+      --blue-light: #2d74cc;
+      --blue-pale: #EBF2FB;
+      --dark: #0f1923;
+      --gray: #4a5568;
+      --gray-light: #718096;
+      --border: #d0dce8;
+      --bg: #f7f9fc;
+      --white: #ffffff;
+      --accent: #e8f0fb;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      font-size: 15px;
+      line-height: 1.75;
+    }
+
+    /* HEADER */
+    header {
+      background: var(--white);
+      border-bottom: 3px solid var(--blue);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(26,86,160,0.08);
+    }
+
+    .header-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 18px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .app-name {
+      font-family: 'DM Serif Display', serif;
+      font-size: 18px;
+      color: var(--blue);
+      letter-spacing: -0.3px;
+    }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--blue);
+      background: var(--accent);
+      border: 1px solid var(--border);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, var(--blue) 0%, #0e3b7a 100%);
+      color: white;
+      padding: 64px 32px 56px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .hero h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 400;
+      letter-spacing: -1px;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .hero .subtitle {
+      font-size: 17px;
+      opacity: 0.85;
+      font-weight: 300;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .hero .date-tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 6px 18px;
+      border-radius: 20px;
+      font-size: 13px;
+      position: relative;
+    }
+
+    /* LAYOUT */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    /* SIDEBAR NAV */
+    .sidebar {
+      position: sticky;
+      top: 80px;
+    }
+
+    .sidebar-title {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 12px;
+      padding-left: 14px;
+    }
+
+    .sidebar nav {
+      border-left: 2px solid var(--border);
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 6px 14px;
+      font-size: 13px;
+      color: var(--gray);
+      text-decoration: none;
+      border-left: 2px solid transparent;
+      margin-left: -2px;
+      transition: all 0.2s;
+      line-height: 1.4;
+    }
+
+    .sidebar nav a:hover, .sidebar nav a.active {
+      color: var(--blue);
+      border-left-color: var(--blue);
+      background: var(--accent);
+    }
+
+    /* CONTENT */
+    .content section {
+      margin-bottom: 48px;
+      scroll-margin-top: 90px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 20px;
+      padding-bottom: 14px;
+      border-bottom: 2px solid var(--blue);
+    }
+
+    .section-num {
+      width: 36px;
+      height: 36px;
+      background: var(--blue);
+      color: white;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 600;
+      flex-shrink: 0;
+    }
+
+    h2.section-title {
+      font-family: 'DM Serif Display', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--blue);
+      letter-spacing: -0.3px;
+    }
+
+    h3.subsection {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--dark);
+      margin: 24px 0 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    h3.subsection::before {
+      content: '';
+      display: inline-block;
+      width: 4px;
+      height: 16px;
+      background: var(--blue-light);
+      border-radius: 2px;
+    }
+
+    p {
+      color: var(--gray);
+      margin-bottom: 14px;
+      text-align: justify;
+    }
+
+    ul.policy-list {
+      list-style: none;
+      padding: 0;
+      margin: 12px 0 16px;
+    }
+
+    ul.policy-list li {
+      color: var(--gray);
+      padding: 8px 12px 8px 36px;
+      margin-bottom: 4px;
+      position: relative;
+      border-radius: 6px;
+      background: var(--accent);
+      border-left: 3px solid var(--blue-light);
+      font-size: 14px;
+    }
+
+    ul.policy-list li::before {
+      content: '→';
+      position: absolute;
+      left: 12px;
+      color: var(--blue);
+      font-weight: 600;
+    }
+
+    ul.policy-list li strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    /* CALLOUT BOXES */
+    .callout {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--blue);
+      border-radius: 8px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .callout.warning {
+      border-left-color: #f59e0b;
+      background: #fffbeb;
+    }
+
+    .callout p { margin: 0; font-size: 14px; }
+
+    /* CONTACT BOX */
+    .contact-box {
+      background: linear-gradient(135deg, var(--blue-pale) 0%, #ddeaf8 100%);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+    }
+
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .contact-row:last-child { border-bottom: none; }
+
+    .contact-label {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      color: var(--gray-light);
+      min-width: 140px;
+      padding-top: 2px;
+    }
+
+    .contact-value {
+      color: var(--dark);
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .contact-value a {
+      color: var(--blue);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .contact-value a:hover { text-decoration: underline; }
+
+    .placeholder {
+      color: var(--blue);
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    /* PERMISSIONS TAG */
+    .perm-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0;
+    }
+
+    .perm-tag {
+      font-size: 12px;
+      font-family: 'DM Sans', monospace;
+      background: #0f1923;
+      color: #7ec8e3;
+      padding: 4px 12px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--dark);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 32px;
+      font-size: 13px;
+    }
+
+    footer strong { color: rgba(255,255,255,0.8); }
+
+    /* RESPONSIVE */
+    @media (max-width: 720px) {
+      .container { grid-template-columns: 1fr; padding: 32px 20px; }
+      .sidebar { display: none; }
+      .hero { padding: 40px 20px; }
+      .header-inner { padding: 14px 20px; }
+    }
+
+    /* ANIMATION */
+    .content section {
+      opacity: 0;
+      transform: translateY(16px);
+      animation: fadeUp 0.5s ease forwards;
+    }
+    .content section:nth-child(1) { animation-delay: 0.05s; }
+    .content section:nth-child(2) { animation-delay: 0.1s; }
+    .content section:nth-child(3) { animation-delay: 0.15s; }
+    .content section:nth-child(4) { animation-delay: 0.2s; }
+    .content section:nth-child(5) { animation-delay: 0.25s; }
+    .content section:nth-child(n+6) { animation-delay: 0.3s; }
+
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <span class="app-name">Devoluapp_social_automation_IG</span>
+    <span class="badge">Política de Privacidade</span>
+  </div>
+</header>
+
+<div class="hero">
+  <h1>Política de Privacidade</h1>
+  <p class="subtitle">Devoluapp_social_automation_IG</p>
+  <span class="date-tag" id="date-tag">Última atualização: carregando...</span>
+</div>
+
+<div class="container">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <p class="sidebar-title">Sumário</p>
+    <nav id="sidebar-nav">
+      <a href="#s1">1. Introdução</a>
+      <a href="#s2">2. Definições</a>
+      <a href="#s3">3. Dados Coletados</a>
+      <a href="#s4">4. Finalidade</a>
+      <a href="#s5">5. Base Legal</a>
+      <a href="#s6">6. Compartilhamento</a>
+      <a href="#s7">7. Retenção</a>
+      <a href="#s8">8. Segurança</a>
+      <a href="#s9">9. Direitos</a>
+      <a href="#s10">10. Cookies</a>
+      <a href="#s11">11. Conformidade Meta</a>
+      <a href="#s12">12. Menores</a>
+      <a href="#s13">13. Contato</a>
+      <a href="#s14">14. Atualizações</a>
+      <a href="#s15">15. Disposições Finais</a>
+    </nav>
+  </aside>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <section id="s1">
+      <div class="section-header">
+        <div class="section-num">1</div>
+        <h2 class="section-title">Introdução</h2>
+      </div>
+      <p>Bem-vindo ao <strong>Devoluapp_social_automation_IG</strong> ("Aplicativo", "nós", "nosso"). Esta Política de Privacidade descreve como coletamos, usamos, armazenamos, compartilhamos e protegemos as informações dos usuários que utilizam nosso aplicativo de automação de mensagens diretas (DMs) no Instagram, desenvolvido e registrado na plataforma Meta for Developers (developers.facebook.com).</p>
+      <p>O Aplicativo permite que operadores conectem contas do Instagram para configurar automações baseadas em palavras-chave — como responder automaticamente no Direct a usuários que comentam uma palavra-chave específica em publicações. Ao utilizar o Aplicativo, você concorda com os termos desta Política de Privacidade.</p>
+    </section>
+
+    <section id="s2">
+      <div class="section-header">
+        <div class="section-num">2</div>
+        <h2 class="section-title">Definições</h2>
+      </div>
+      <p>Para fins desta Política, os seguintes termos têm os significados abaixo:</p>
+      <ul class="policy-list">
+        <li><strong>Operador:</strong> pessoa ou empresa que contrata o Aplicativo e conecta contas do Instagram para gerenciar automações.</li>
+        <li><strong>Usuário Final:</strong> pessoa que interage com as publicações do Operador no Instagram (comentando, enviando mensagens) e que pode receber respostas automatizadas via Direct.</li>
+        <li><strong>Palavra-chave (Gatilho):</strong> termo definido pelo Operador que, quando comentado por um Usuário Final, ativa uma automação de resposta no Direct.</li>
+        <li><strong>API do Instagram:</strong> interface fornecida pela Meta Platforms que permite ao Aplicativo interagir com contas e dados do Instagram.</li>
+        <li><strong>DM / Direct:</strong> sistema de mensagens privadas do Instagram.</li>
+      </ul>
+    </section>
+
+    <section id="s3">
+      <div class="section-header">
+        <div class="section-num">3</div>
+        <h2 class="section-title">Dados Coletados</h2>
+      </div>
+
+      <h3 class="subsection">3.1 Dados dos Operadores</h3>
+      <p>Ao se cadastrar e utilizar o Aplicativo, coletamos dos Operadores:</p>
+      <ul class="policy-list">
+        <li>Nome completo ou razão social</li>
+        <li>Endereço de e-mail</li>
+        <li>Informações de conta e credenciais de acesso ao Aplicativo</li>
+        <li>Tokens de acesso às contas do Instagram vinculadas (fornecidos via OAuth pela Meta)</li>
+        <li>Configurações de automação criadas (palavras-chave, mensagens de resposta, regras de fluxo)</li>
+        <li>Dados de uso e logs de operação das automações</li>
+      </ul>
+
+      <h3 class="subsection">3.2 Dados dos Usuários Finais</h3>
+      <p>No contexto do funcionamento das automações configuradas pelos Operadores, o Aplicativo pode processar os seguintes dados de Usuários Finais, obtidos por meio da API do Instagram:</p>
+      <ul class="policy-list">
+        <li>Nome de usuário (username) público do Instagram</li>
+        <li>Identificador único de usuário do Instagram (User ID)</li>
+        <li>Conteúdo do comentário que ativou o gatilho</li>
+        <li>Conteúdo de mensagens diretas recebidas que ativaram automações</li>
+        <li>Identificador da publicação ou história onde ocorreu a interação</li>
+      </ul>
+      <div class="callout">
+        <p>Não coletamos dados sensíveis como senhas, documentos de identidade, dados financeiros ou informações de localização dos Usuários Finais. Não armazenamos o histórico completo de conversas além do necessário para operar a automação configurada.</p>
+      </div>
+    </section>
+
+    <section id="s4">
+      <div class="section-header">
+        <div class="section-num">4</div>
+        <h2 class="section-title">Finalidade do Uso dos Dados</h2>
+      </div>
+      <p>Os dados coletados são utilizados exclusivamente para:</p>
+      <ul class="policy-list">
+        <li>Autenticar Operadores e gerenciar o acesso ao Aplicativo</li>
+        <li>Conectar e autenticar as contas do Instagram dos Operadores via API da Meta</li>
+        <li>Executar as automações configuradas pelos Operadores (detectar palavras-chave em comentários/DMs e enviar respostas automáticas no Direct)</li>
+        <li>Registrar logs de atividade das automações para fins de diagnóstico, monitoramento e suporte técnico</li>
+        <li>Gerar relatórios e métricas de desempenho das automações para os Operadores</li>
+        <li>Cumprir obrigações legais, regulatórias e as Políticas de Uso da Plataforma da Meta</li>
+        <li>Melhorar a qualidade, segurança e funcionalidades do Aplicativo</li>
+      </ul>
+      <div class="callout">
+        <p>Não utilizamos os dados dos Usuários Finais para fins de marketing próprio, venda de dados ou qualquer propósito além da execução das automações definidas pelos Operadores.</p>
+      </div>
+    </section>
+
+    <section id="s5">
+      <div class="section-header">
+        <div class="section-num">5</div>
+        <h2 class="section-title">Base Legal para o Tratamento de Dados</h2>
+      </div>
+      <p>O tratamento dos dados realizado pelo Aplicativo está fundamentado nas seguintes bases legais, conforme a <strong>Lei Geral de Proteção de Dados (LGPD – Lei nº 13.709/2018)</strong> e, quando aplicável, o Regulamento Geral de Proteção de Dados (GDPR):</p>
+      <ul class="policy-list">
+        <li><strong>Execução de contrato:</strong> para processar dados dos Operadores necessários à prestação do serviço contratado.</li>
+        <li><strong>Consentimento:</strong> para o tratamento de dados dos Usuários Finais, na medida em que o usuário, ao interagir publicamente com as publicações do Operador (comentando uma palavra-chave), manifesta ciência e inicia voluntariamente a interação.</li>
+        <li><strong>Legítimo interesse:</strong> para fins de segurança, prevenção de fraudes e melhoria do serviço, desde que não prevaleçam sobre os direitos e liberdades dos titulares.</li>
+        <li><strong>Cumprimento de obrigação legal:</strong> quando exigido por lei ou autoridade competente.</li>
+      </ul>
+    </section>
+
+    <section id="s6">
+      <div class="section-header">
+        <div class="section-num">6</div>
+        <h2 class="section-title">Compartilhamento de Dados</h2>
+      </div>
+      <p>Os dados tratados pelo Aplicativo podem ser compartilhados nas seguintes situações:</p>
+      <ul class="policy-list">
+        <li><strong>Meta Platforms (Instagram/Facebook):</strong> o Aplicativo opera integralmente através da API oficial da Meta. Dados transmitidos à API estão sujeitos à Política de Privacidade da Meta. Os tokens de acesso e as requisições de envio de mensagens são processados conforme os termos de uso da plataforma.</li>
+        <li><strong>Provedores de infraestrutura:</strong> serviços de hospedagem, banco de dados e processamento em nuvem utilizados para operar o Aplicativo, contratados mediante termos de confidencialidade e proteção de dados.</li>
+        <li><strong>Cumprimento legal:</strong> quando houver obrigação legal, ordem judicial ou requisição de autoridade competente.</li>
+      </ul>
+      <div class="callout warning">
+        <p>Não vendemos, alugamos ou cedemos dados pessoais de Operadores ou Usuários Finais a terceiros para fins comerciais.</p>
+      </div>
+    </section>
+
+    <section id="s7">
+      <div class="section-header">
+        <div class="section-num">7</div>
+        <h2 class="section-title">Retenção de Dados</h2>
+      </div>
+      <p>Os dados são retidos pelos seguintes períodos:</p>
+      <ul class="policy-list">
+        <li><strong>Dados dos Operadores:</strong> mantidos durante a vigência do contrato/cadastro e por até 5 (cinco) anos após o encerramento, para fins de cumprimento de obrigações legais e resolução de disputas.</li>
+        <li><strong>Tokens de acesso ao Instagram:</strong> mantidos enquanto o Operador mantiver a conta conectada ao Aplicativo. São revogados e excluídos imediatamente após a desconexão da conta.</li>
+        <li><strong>Logs de automação:</strong> retidos por até 90 (noventa) dias para fins de diagnóstico e suporte, salvo quando houver necessidade legal de retenção mais prolongada.</li>
+        <li><strong>Dados de Usuários Finais:</strong> processados em memória durante a execução da automação e não armazenados de forma permanente, exceto os identificadores necessários para controle de frequência de envio (ex.: evitar spam).</li>
+      </ul>
+    </section>
+
+    <section id="s8">
+      <div class="section-header">
+        <div class="section-num">8</div>
+        <h2 class="section-title">Segurança dos Dados</h2>
+      </div>
+      <p>Adotamos medidas técnicas e organizacionais adequadas para proteger os dados contra acesso não autorizado, perda, destruição ou divulgação indevida, incluindo:</p>
+      <ul class="policy-list">
+        <li>Criptografia em trânsito (TLS/HTTPS) para todas as comunicações com a API da Meta e entre componentes do sistema</li>
+        <li>Criptografia em repouso para tokens de acesso armazenados</li>
+        <li>Controle de acesso baseado em funções (RBAC) para limitar o acesso interno aos dados</li>
+        <li>Monitoramento e registro de atividades suspeitas</li>
+        <li>Processo de revisão e atualização periódica das medidas de segurança</li>
+      </ul>
+      <div class="callout">
+        <p>Em caso de incidente de segurança que possa causar risco ou dano aos titulares, notificaremos a Autoridade Nacional de Proteção de Dados (ANPD) e os afetados nos prazos e formas exigidos pela LGPD.</p>
+      </div>
+    </section>
+
+    <section id="s9">
+      <div class="section-header">
+        <div class="section-num">9</div>
+        <h2 class="section-title">Direitos dos Titulares de Dados</h2>
+      </div>
+      <p>Os Operadores e os Usuários Finais têm os seguintes direitos em relação aos seus dados pessoais, nos termos da LGPD:</p>
+      <ul class="policy-list">
+        <li><strong>Confirmação e acesso:</strong> saber se tratamos seus dados e obter cópia das informações tratadas.</li>
+        <li><strong>Correção:</strong> solicitar a correção de dados incompletos, inexatos ou desatualizados.</li>
+        <li><strong>Anonimização, bloqueio ou eliminação:</strong> de dados desnecessários, excessivos ou tratados em desconformidade com a lei.</li>
+        <li><strong>Portabilidade:</strong> receber seus dados em formato estruturado e interoperável.</li>
+        <li><strong>Revogação do consentimento:</strong> retirar o consentimento a qualquer momento, sem prejuízo da legalidade do tratamento anterior.</li>
+        <li><strong>Eliminação:</strong> solicitar a exclusão dos dados tratados com base no consentimento.</li>
+        <li><strong>Informação sobre compartilhamento:</strong> saber com quais entidades seus dados foram compartilhados.</li>
+      </ul>
+      <p>Para exercer seus direitos, entre em contato conosco pelo canal indicado na Seção 13 desta Política. Responderemos às solicitações no prazo legal.</p>
+    </section>
+
+    <section id="s10">
+      <div class="section-header">
+        <div class="section-num">10</div>
+        <h2 class="section-title">Cookies e Tecnologias de Rastreamento</h2>
+      </div>
+      <p>O painel administrativo do Aplicativo (interface web para Operadores) pode utilizar cookies e tecnologias similares para:</p>
+      <ul class="policy-list">
+        <li>Manter sessões autenticadas dos Operadores</li>
+        <li>Memorizar preferências de interface</li>
+        <li>Coletar métricas de uso agregadas e anônimas para melhorias do produto</li>
+      </ul>
+      <p>Os Operadores podem configurar seu navegador para recusar cookies, mas isso pode afetar a funcionalidade da interface. Não utilizamos cookies para rastrear Usuários Finais do Instagram.</p>
+    </section>
+
+    <section id="s11">
+      <div class="section-header">
+        <div class="section-num">11</div>
+        <h2 class="section-title">Conformidade com as Políticas da Meta Platforms</h2>
+      </div>
+      <p>O Aplicativo foi desenvolvido e opera em conformidade com:</p>
+      <ul class="policy-list">
+        <li>Política de Uso da Plataforma Meta (Meta Platform Terms)</li>
+        <li>Política de Dados do Desenvolvedor da Meta (Meta Developer Policies)</li>
+        <li>Diretrizes de Uso da API do Instagram</li>
+        <li>Política de Dados da Meta (Meta Privacy Policy)</li>
+      </ul>
+      <p>O Aplicativo utiliza apenas as permissões da API do Instagram estritamente necessárias para as funcionalidades descritas:</p>
+      <div class="perm-tags">
+        <span class="perm-tag">instagram_basic</span>
+        <span class="perm-tag">instagram_manage_comments</span>
+        <span class="perm-tag">instagram_manage_messages</span>
+        <span class="perm-tag">pages_messaging</span>
+      </div>
+      <div class="callout warning">
+        <p>Os Operadores são responsáveis por garantir que o uso do Aplicativo em suas contas esteja em conformidade com os Termos de Uso do Instagram e com a legislação aplicável, incluindo a obtenção de eventuais consentimentos necessários de seus seguidores.</p>
+      </div>
+    </section>
+
+    <section id="s12">
+      <div class="section-header">
+        <div class="section-num">12</div>
+        <h2 class="section-title">Menores de Idade</h2>
+      </div>
+      <p>O Aplicativo não é destinado a menores de 18 (dezoito) anos. Não coletamos intencionalmente dados pessoais de menores. Caso tenhamos conhecimento de que coletamos dados de um menor sem consentimento parental, tomaremos medidas para excluir tais informações imediatamente.</p>
+    </section>
+
+    <section id="s13">
+      <div class="section-header">
+        <div class="section-num">13</div>
+        <h2 class="section-title">Contato e Canal do Encarregado (DPO)</h2>
+      </div>
+      <p>Para exercer seus direitos, sanar dúvidas, realizar reclamações ou entrar em contato sobre esta Política de Privacidade:</p>
+      <div class="contact-box">
+        <div class="contact-row">
+          <span class="contact-label">Aplicativo</span>
+          <span class="contact-value">Devoluapp_social_automation_IG</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">E-mail</span>
+          <span class="contact-value"><a href="mailto:devoluapp@gmail.com">devoluapp@gmail.com</a></span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Responsável / DPO</span>
+          <span class="contact-value placeholder">[inserir nome do responsável]</span>
+        </div>
+        <div class="contact-row">
+          <span class="contact-label">Empresa / CNPJ</span>
+          <span class="contact-value placeholder">[inserir razão social e CNPJ]</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="s14">
+      <div class="section-header">
+        <div class="section-num">14</div>
+        <h2 class="section-title">Atualizações desta Política</h2>
+      </div>
+      <p>Esta Política de Privacidade pode ser atualizada periodicamente para refletir mudanças em nossas práticas, na legislação aplicável ou nas políticas da Meta Platforms. Quando realizarmos alterações materiais, notificaremos os Operadores por e-mail ou por aviso destacado no painel do Aplicativo.</p>
+      <p>Recomendamos a revisão periódica desta Política. O uso continuado do Aplicativo após a publicação de alterações constitui concordância com os novos termos.</p>
+    </section>
+
+    <section id="s15">
+      <div class="section-header">
+        <div class="section-num">15</div>
+        <h2 class="section-title">Disposições Finais</h2>
+      </div>
+      <p>Esta Política de Privacidade é regida pela legislação brasileira, em especial a <strong>Lei nº 13.709/2018 (LGPD)</strong>. Eventuais conflitos serão dirimidos no foro da comarca do domicílio do responsável pelo Aplicativo, com renúncia a qualquer outro, por mais privilegiado que seja.</p>
+      <p>Esta Política não cria qualquer vínculo empregatício, societário ou de parceria entre o Aplicativo e os Operadores ou Usuários Finais.</p>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  <p><strong>Devoluapp_social_automation_IG</strong> — Política de Privacidade v1.0</p>
+  <p style="margin-top:6px;" id="footer-date"></p>
+</footer>
+
+<script>
+  // Date
+  const date = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
+  document.getElementById('date-tag').textContent = 'Última atualização: ' + date;
+  document.getElementById('footer-date').textContent = 'Documento gerado em ' + date;
+
+  // Active sidebar link on scroll
+  const sections = document.querySelectorAll('.content section');
+  const links = document.querySelectorAll('#sidebar-nav a');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`#sidebar-nav a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
